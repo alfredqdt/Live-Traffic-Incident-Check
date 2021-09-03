@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Live Traffic Incident Check</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
