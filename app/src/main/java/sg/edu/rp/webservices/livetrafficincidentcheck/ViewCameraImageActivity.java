@@ -10,10 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,18 +25,18 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MainActivity extends AppCompatActivity {
-    private ListView lvIncident;
-    private ArrayList<Incident> alIncident;
-    private ArrayAdapter<Incident> aaIncident;
+public class ViewCameraImageActivity extends AppCompatActivity {
+    private ListView lvCameraImage;
+    private ArrayList<CameraImage> alCameraImage;
+    private ArrayAdapter<CameraImage> aaCameraImage;
     private AsyncHttpClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_view_camera_image);
 
-        lvIncident = (ListView) findViewById(R.id.lvIncident);
+        lvCameraImage = (ListView) findViewById(R.id.lvCameraImage);
         client = new AsyncHttpClient();
 
     }
@@ -45,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         //TODO: call getListOfContacts.php to retrieve all contact details
-        alIncident = new ArrayList<Incident>();
+        alCameraImage = new ArrayList<CameraImage>();
         client.addHeader("AccountKey", "SDWn7IqOSryTM/h6AOHDcw==");
-        client.get("http://datamall2.mytransport.sg/ltaodataservice/TrafficIncidents", new JsonHttpResponseHandler() {
+        client.get("http://datamall2.mytransport.sg/ltaodataservice/Traffic-Imagesv2", new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
@@ -57,29 +59,31 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-                        String type = jsonObj.getString("Type");
+                        String cameraID = jsonObj.getString("CameraID");
                         double latitude = jsonObj.getDouble("Latitude");
                         double longitude = jsonObj.getDouble("Longitude");
-                        String message = jsonObj.getString("Message");
+                        String imageLink = jsonObj.getString("ImageLink");
 
-                        Incident incident = new Incident(type, message, latitude, longitude);
-                        alIncident.add(incident);
+                        CameraImage cameraImage = new CameraImage(cameraID, imageLink, latitude, longitude);
+                        alCameraImage.add(cameraImage);
+
                     }
-                } catch (JSONException e) {
+                }
+                catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                aaIncident = new IncidentAdapter(getApplicationContext(), R.layout.row, alIncident);
-                lvIncident.setAdapter(aaIncident);
+                aaCameraImage = new CameraImageAdapter(getApplicationContext(), R.layout.row2, alCameraImage);
+                lvCameraImage.setAdapter(aaCameraImage);
 
-                lvIncident.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                lvCameraImage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        Incident selectedContact = alIncident.get(position);
-                        Intent i = new Intent(getBaseContext(), MapsActivity.class);
-                        i.putExtra("type", selectedContact.getType());
-                        i.putExtra("message", selectedContact.getMessage());
+                        CameraImage selectedContact = alCameraImage.get(position);
+                        Intent i = new Intent(getBaseContext(), MapViewImage.class);
+                        i.putExtra("cameraID", selectedContact.getCameraID());
+                        i.putExtra("imageLink", selectedContact.getImageLink());
                         i.putExtra("latitude", selectedContact.getLatitude());
                         i.putExtra("longitude", selectedContact.getLongitude());
                         startActivity(i);
@@ -88,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }//end onResume
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,10 +110,12 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.idViewMap) {
             Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
             startActivity(intent);
-        } else if (id == R.id.idViewIncident) {
+        }
+        else if (id == R.id.idViewIncident) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
-        } else {
+        }
+        else {
             Intent intent = new Intent(getApplicationContext(), ViewCameraImageActivity.class);
             startActivity(intent);
         }

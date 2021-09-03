@@ -4,4 +4,12 @@
         android:id="@+id/idViewMap"
         android:orderInCategory="100"
         android:title="View All Incidents" />
+    <item
+        android:id="@+id/idViewIncident"
+        android:orderInCategory="100"
+        android:title="View Incident List" />
+    <item
+        android:id="@+id/idViewImage"
+        android:orderInCategory="100"
+        android:title="View Traffic Images" />
 </menu>
