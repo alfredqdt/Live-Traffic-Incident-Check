@@ -75,6 +75,7 @@ public class ViewCameraImageActivity extends AppCompatActivity {
 
                 aaCameraImage = new CameraImageAdapter(getApplicationContext(), R.layout.row2, alCameraImage);
                 lvCameraImage.setAdapter(aaCameraImage);
+                aaCameraImage.notifyDataSetChanged();
 
                 lvCameraImage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override

@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 aaIncident = new IncidentAdapter(getApplicationContext(), R.layout.row, alIncident);
                 lvIncident.setAdapter(aaIncident);
+                aaIncident.notifyDataSetChanged();
 
                 lvIncident.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
