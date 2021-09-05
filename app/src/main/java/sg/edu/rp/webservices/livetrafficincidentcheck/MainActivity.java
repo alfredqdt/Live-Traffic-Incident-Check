@@ -39,12 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //refresh with latest contact data whenever this activity resumes
     @Override
     protected void onResume() {
         super.onResume();
 
-        //TODO: call getListOfContacts.php to retrieve all contact details
         alIncident = new ArrayList<Incident>();
         client.addHeader("AccountKey", "SDWn7IqOSryTM/h6AOHDcw==");
         client.get("http://datamall2.mytransport.sg/ltaodataservice/TrafficIncidents", new JsonHttpResponseHandler() {
