@@ -10,13 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#0000FF"
-        android:textSize="80px"
+        android:textSize="70px"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/tvAvailableLots"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="50px"
         android:text="TextView" />
 
 </LinearLayout>
