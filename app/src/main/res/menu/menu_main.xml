@@ -11,5 +11,5 @@
     <item
         android:id="@+id/idViewImage"
         android:orderInCategory="100"
-        android:title="View Traffic Images" />
+        android:title="View Expressway Images" />
 </menu>
