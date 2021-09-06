@@ -3,13 +3,17 @@
     <item
         android:id="@+id/idViewMap"
         android:orderInCategory="100"
-        android:title="View All Incidents" />
+        android:title="All Incidents on Map" />
     <item
         android:id="@+id/idViewIncident"
         android:orderInCategory="100"
-        android:title="View Incident List" />
+        android:title="Incident List" />
     <item
         android:id="@+id/idViewImage"
         android:orderInCategory="100"
-        android:title="View Expressway Images" />
+        android:title="Expressway Images" />
+    <item
+        android:id="@+id/idViewCarPark"
+        android:orderInCategory="100"
+        android:title="CarPark Availability" />
 </menu>

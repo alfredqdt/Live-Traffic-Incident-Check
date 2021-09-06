@@ -36,13 +36,7 @@
             android:label="@string/title_activity_map_car_park" />
         <activity
             android:name=".CarParkActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MapViewImage"
             android:exported="true"
@@ -57,13 +51,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
     </application>
 

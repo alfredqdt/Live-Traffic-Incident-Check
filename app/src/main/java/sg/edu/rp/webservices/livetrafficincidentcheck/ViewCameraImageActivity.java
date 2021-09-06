@@ -68,8 +68,7 @@ public class ViewCameraImageActivity extends AppCompatActivity {
                         alCameraImage.add(cameraImage);
 
                     }
-                }
-                catch (JSONException e) {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
@@ -111,12 +110,13 @@ public class ViewCameraImageActivity extends AppCompatActivity {
         if (id == R.id.idViewMap) {
             Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
             startActivity(intent);
-        }
-        else if (id == R.id.idViewIncident) {
+        } else if (id == R.id.idViewIncident) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
-        }
-        else {
+        } else if (id == R.id.idViewCarPark) {
+            Intent intent = new Intent(getApplicationContext(), CarParkActivity.class);
+            startActivity(intent);
+        } else {
             Intent intent = new Intent(getApplicationContext(), ViewCameraImageActivity.class);
             startActivity(intent);
         }

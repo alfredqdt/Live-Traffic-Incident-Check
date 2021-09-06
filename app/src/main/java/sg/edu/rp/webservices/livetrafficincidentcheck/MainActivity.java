@@ -135,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.idViewIncident) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+        } else if (id == R.id.idViewCarPark) {
+            Intent intent = new Intent(getApplicationContext(), CarParkActivity.class);
+            startActivity(intent);
         } else {
             Intent intent = new Intent(getApplicationContext(), ViewCameraImageActivity.class);
             startActivity(intent);
