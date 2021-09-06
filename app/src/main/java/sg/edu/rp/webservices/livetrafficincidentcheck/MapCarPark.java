@@ -58,7 +58,7 @@ public class MapCarPark extends FragmentActivity implements OnMapReadyCallback {
 
         for (String a : arrOfStr)
             strLat = arrOfStr[0];
-        strLng = arrOfStr[1];
+            strLng = arrOfStr[1];
 
 
         Double doubleLat = Double.parseDouble(strLat);
