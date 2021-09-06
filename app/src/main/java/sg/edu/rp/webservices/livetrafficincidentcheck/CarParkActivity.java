@@ -101,12 +101,11 @@ public class CarParkActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        CarPark selectedContact = alCarPark.get(position);
-                        Intent i = new Intent(getBaseContext(), MapsActivity.class);
-//                        i.putExtra("type", selectedContact.getType());
-//                        i.putExtra("message", selectedContact.getMessage());
-//                        i.putExtra("latitude", selectedContact.getLatitude());
-//                        i.putExtra("longitude", selectedContact.getLongitude());
+                        CarPark selectedCarPark = alCarPark.get(position);
+                        Intent i = new Intent(getBaseContext(), MapCarPark.class);
+                        i.putExtra("development", selectedCarPark.getDevelopment());
+                        i.putExtra("availableLot", selectedCarPark.getAvailableLots());
+                        i.putExtra("location", selectedCarPark.getLocation());
                         startActivity(i);
                     }
                 }); //end onSuccess
