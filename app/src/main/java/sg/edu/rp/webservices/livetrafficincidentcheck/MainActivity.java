@@ -101,12 +101,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        Incident selectedContact = alIncident.get(position);
+                        Incident selectedIncident = alIncident.get(position);
                         Intent i = new Intent(getBaseContext(), MapsActivity.class);
-                        i.putExtra("type", selectedContact.getType());
-                        i.putExtra("message", selectedContact.getMessage());
-                        i.putExtra("latitude", selectedContact.getLatitude());
-                        i.putExtra("longitude", selectedContact.getLongitude());
+                        i.putExtra("type", selectedIncident.getType());
+                        i.putExtra("message", selectedIncident.getMessage());
+                        i.putExtra("latitude", selectedIncident.getLatitude());
+                        i.putExtra("longitude", selectedIncident.getLongitude());
                         startActivity(i);
                     }
                 }); //end onSuccess

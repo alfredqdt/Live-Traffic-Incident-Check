@@ -80,12 +80,12 @@ public class ViewCameraImageActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        CameraImage selectedContact = alCameraImage.get(position);
+                        CameraImage selectedImage = alCameraImage.get(position);
                         Intent i = new Intent(getBaseContext(), MapViewImage.class);
-                        i.putExtra("cameraID", selectedContact.getCameraID());
-                        i.putExtra("imageLink", selectedContact.getImageLink());
-                        i.putExtra("latitude", selectedContact.getLatitude());
-                        i.putExtra("longitude", selectedContact.getLongitude());
+                        i.putExtra("cameraID", selectedImage.getCameraID());
+                        i.putExtra("imageLink", selectedImage.getImageLink());
+                        i.putExtra("latitude", selectedImage.getLatitude());
+                        i.putExtra("longitude", selectedImage.getLongitude());
                         startActivity(i);
                     }
                 }); //end onSuccess
