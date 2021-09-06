@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 aaIncident = new IncidentAdapter(getApplicationContext(), R.layout.row, queryList);
                 lvIncident.setAdapter(aaIncident);
+                aaIncident.notifyDataSetChanged();
 
                 return true;
             }
