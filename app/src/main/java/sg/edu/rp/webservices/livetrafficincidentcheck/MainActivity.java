@@ -2,6 +2,7 @@ package sg.edu.rp.webservices.livetrafficincidentcheck;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -22,12 +24,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
-//test
+
 public class MainActivity extends AppCompatActivity {
     private ListView lvIncident;
     private ArrayList<Incident> alIncident;
     private ArrayAdapter<Incident> aaIncident;
     private AsyncHttpClient client;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +38,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lvIncident = (ListView) findViewById(R.id.lvIncident);
+        searchView = (SearchView) findViewById(R.id.searchView);
         client = new AsyncHttpClient();
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Incident> queryList = new ArrayList<>();
+
+                for (Incident query : alIncident) {
+                    if (query.getMessage().toLowerCase().contains(s.toLowerCase())) {
+                        queryList.add(query);
+                    }
+                }
+                aaIncident = new IncidentAdapter(getApplicationContext(), R.layout.row, queryList);
+                lvIncident.setAdapter(aaIncident);
+
+                return true;
+            }
+        });
 
         alIncident = new ArrayList<Incident>();
         client.addHeader("AccountKey", "SDWn7IqOSryTM/h6AOHDcw==");
