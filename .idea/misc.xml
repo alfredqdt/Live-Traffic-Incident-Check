@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/activity_carpark.xml" value="0.182518115942029" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/activity_main.xml" value="0.15579710144927536" />
+        <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/activity_map_car_park.xml" value="0.182518115942029" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/activity_map_view_image.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/activity_maps.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/activity_view_camera_image.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/row.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/row2.xml" value="0.2006340579710145" />
+        <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/layout/row3.xml" value="0.182518115942029" />
         <entry key="..\:/Users/19041582/AndroidStudioProjects/LiveTrafficIncidentCheck/app/src/main/res/menu/menu_main.xml" value="0.25416666666666665" />
       </map>
     </option>
