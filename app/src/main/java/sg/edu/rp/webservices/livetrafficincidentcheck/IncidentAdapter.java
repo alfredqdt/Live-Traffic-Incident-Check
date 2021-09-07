@@ -31,7 +31,7 @@ public class IncidentAdapter extends ArrayAdapter<Incident> {
 
         Incident currentIncident = alIncident.get(position);
 
-        tvType.setText(currentIncident.getType());
+        tvType.setText((position + 1) + ": " + currentIncident.getType());
         tvMessage.setText(currentIncident.getMessage());
 
         return rowView;
