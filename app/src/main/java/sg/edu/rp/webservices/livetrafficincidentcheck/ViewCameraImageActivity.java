@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
-
+//Hello World
 public class ViewCameraImageActivity extends AppCompatActivity {
     private ListView lvCameraImage;
     private ArrayList<CameraImage> alCameraImage;
