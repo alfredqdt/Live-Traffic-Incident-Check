@@ -65,6 +65,20 @@ public class MainActivity extends AppCompatActivity {
                 lvIncident.setAdapter(aaIncident);
                 aaIncident.notifyDataSetChanged();
 
+                lvIncident.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        Incident selectedIncident = queryList.get(position);
+                        Intent i = new Intent(getBaseContext(), MapsActivity.class);
+                        i.putExtra("type", selectedIncident.getType());
+                        i.putExtra("message", selectedIncident.getMessage());
+                        i.putExtra("latitude", selectedIncident.getLatitude());
+                        i.putExtra("longitude", selectedIncident.getLongitude());
+                        startActivity(i);
+                    }
+                }); //end onSuccess
+
                 return true;
             }
         });

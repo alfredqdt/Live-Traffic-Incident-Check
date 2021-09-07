@@ -54,7 +54,7 @@ public class CarParkActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                ArrayList<CarPark> queryList = new ArrayList<>();
+                ArrayList<CarPark> queryList = new ArrayList<CarPark>();
 
                 for (CarPark query : alCarPark) {
                     if (query.getDevelopment().toLowerCase().contains(s.toLowerCase())) {
@@ -65,8 +65,22 @@ public class CarParkActivity extends AppCompatActivity {
                 lvCarPark.setAdapter(aaCarPark);
                 aaCarPark.notifyDataSetChanged();
 
+                lvCarPark.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        CarPark selectedCarPark = queryList.get(position);
+                        Intent i = new Intent(CarParkActivity.this, MapCarPark.class);
+                        i.putExtra("development", selectedCarPark.getDevelopment());
+                        i.putExtra("availableLot", selectedCarPark.getAvailableLots());
+                        i.putExtra("location", selectedCarPark.getLocation());
+                        startActivity(i);
+                    }
+                }); //end onSuccess
+
                 return true;
             }
+
         });
 
         alCarPark = new ArrayList<CarPark>();
@@ -102,7 +116,7 @@ public class CarParkActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                         CarPark selectedCarPark = alCarPark.get(position);
-                        Intent i = new Intent(getBaseContext(), MapCarPark.class);
+                        Intent i = new Intent(CarParkActivity.this, MapCarPark.class);
                         i.putExtra("development", selectedCarPark.getDevelopment());
                         i.putExtra("availableLot", selectedCarPark.getAvailableLots());
                         i.putExtra("location", selectedCarPark.getLocation());
