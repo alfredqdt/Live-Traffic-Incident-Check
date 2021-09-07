@@ -1,10 +1,12 @@
 package sg.edu.rp.webservices.livetrafficincidentcheck;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<Incident> aaIncident;
     private AsyncHttpClient client;
     SearchView searchView;
+    TextView tvIncidentNumbers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
         lvIncident = (ListView) findViewById(R.id.lvIncident);
         searchView = (SearchView) findViewById(R.id.searchView);
+        tvIncidentNumbers = (TextView) findViewById(R.id.tvIncidentNumbers);
         client = new AsyncHttpClient();
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(Html.fromHtml("<font color='#000000'>Incident List</font>"));
+
     }
 
     @Override
@@ -102,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
 
                         Incident incident = new Incident(type, message, latitude, longitude);
                         alIncident.add(incident);
+
+                        if (i >= 0) {
+                            tvIncidentNumbers.setText("Total Current Incident:  " + (i + 1));
+                        } else {
+                            tvIncidentNumbers.setText("Total Current Incident:  0");
+                        }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -126,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
                 }); //end onSuccess
             }
         });
-    }//end onResume
 
+    }//end onResume
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

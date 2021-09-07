@@ -9,8 +9,9 @@
         android:id="@+id/tvCameraID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#0000FF"
-        android:textSize="70px"
+        android:textColor="#C23D74"
+        android:textSize="60px"
+        android:textStyle="bold"
         android:text="TextView" />
 
     <ImageView

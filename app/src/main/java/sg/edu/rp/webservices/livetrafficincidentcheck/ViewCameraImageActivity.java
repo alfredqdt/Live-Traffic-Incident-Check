@@ -1,9 +1,11 @@
 package sg.edu.rp.webservices.livetrafficincidentcheck;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +40,9 @@ public class ViewCameraImageActivity extends AppCompatActivity {
 
         lvCameraImage = (ListView) findViewById(R.id.lvCameraImage);
         client = new AsyncHttpClient();
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(Html.fromHtml("<font color='#000000'>Expressway Images</font>"));
 
     }
 
