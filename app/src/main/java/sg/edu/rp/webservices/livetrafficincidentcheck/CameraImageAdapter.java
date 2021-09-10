@@ -35,7 +35,7 @@ public class CameraImageAdapter extends ArrayAdapter<CameraImage> {
 
         CameraImage selectedCameraImage = alCameraImage.get(position);
 
-        tvCameraID.setText(selectedCameraImage.getCameraID());
+        tvCameraID.setText("Camera ID: " + selectedCameraImage.getCameraID());
 
         Picasso.with(context).load(selectedCameraImage.getImageLink()).into(tvImageLink);
 

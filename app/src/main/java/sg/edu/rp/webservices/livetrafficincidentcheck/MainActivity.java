@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
                         alIncident.add(incident);
 
                         if (i >= 0) {
-                            tvIncidentNumbers.setText("Total Current Incident:  " + (i + 1));
+                            tvIncidentNumbers.setText(" Total Current Incident:  " + (i + 1) + " ");
                         } else {
-                            tvIncidentNumbers.setText("Total Current Incident:  0");
+                            tvIncidentNumbers.setText(" Total Current Incident:  0 ");
                         }
                     }
                 } catch (JSONException e) {
