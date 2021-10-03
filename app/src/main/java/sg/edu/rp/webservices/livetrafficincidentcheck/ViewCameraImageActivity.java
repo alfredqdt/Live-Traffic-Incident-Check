@@ -42,7 +42,7 @@ public class ViewCameraImageActivity extends AppCompatActivity {
         client = new AsyncHttpClient();
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(Html.fromHtml("<font color='#000000'>Expressway Images</font>"));
+        actionBar.setTitle(Html.fromHtml("<font color='#FFFFFF'>Expressway Images</font>"));
 
     }
 

@@ -44,7 +44,7 @@ public class CarParkActivity extends AppCompatActivity {
         client = new AsyncHttpClient();
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(Html.fromHtml("<font color='#000000'>CarPark Availability</font>"));
+        actionBar.setTitle(Html.fromHtml("<font color='#FFFFFF'>CarPark Availability</font>"));
     }
 
     @Override
