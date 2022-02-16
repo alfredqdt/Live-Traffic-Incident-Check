@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/tvIncidentNumbers"
-        android:background="#004B96"
+        android:background="#3E69B4"
         android:textColor="#FFFFFF"
         android:textSize="50px"
         android:layout_width="wrap_content"

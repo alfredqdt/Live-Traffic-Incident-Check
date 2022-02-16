@@ -9,7 +9,7 @@
         android:id="@+id/tvDevelopment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#004B96"
+        android:textColor="#3E69B4"
         android:textStyle="bold"
         android:textSize="60px"
         android:text="TextView" />
